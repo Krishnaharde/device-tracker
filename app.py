@@ -57,5 +57,14 @@ def logout():
     session.clear()
     return redirect("/")
 
+def init_db():
+    db = get_db()
+    db.execute("""CREATE TABLE IF NOT EXISTS users(
+        name TEXT, email TEXT, password TEXT)""")
+    db.commit()
+
+with app.app_context():
+    init_db()
+
 if __name__ == "__main__":
     app.run(debug=False)
