@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+<script>
+function getLocation() {
+    navigator.geolocation.getCurrentPosition(showPosition);
+}
+function showPosition(position) {
+    document.getElementById("loc").innerHTML =
+    "Latitude: " + position.coords.latitude +
+    "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+</head>
+<body onload="getLocation()">
+<h2>Welcome to Device Tracker</h2>
+<p id="loc"></p>
+<a href="/logout">Logout</a>
+</body>
+</html>
